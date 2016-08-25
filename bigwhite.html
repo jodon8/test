@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            /*animation: 10s walk infinite linear forwards;*/
+        }
+
+        @keyframes walk {
+            from {
+                perspective: 1px;
+            }
+            to {
+                perspective: 2000px;
+            }
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            /*background-color: #080808;*/
+            transform-style: preserve-3d;
+            /*border-radius: 50%;*/
+            margin: 300px auto;
+            /*animation: bigger 10s infinite linear forwards;*/
+            /*box-shadow: 1px 1px 3px gray, -1px -1px 3px gray ;*/
+            position: relative;
+            left: -600px;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes bigger {
+            from {
+                transform: scale(0, 0);
+            }
+            to {
+                transform: scale(2, 2);
+            }
+        }
+
+        /*.box:hover {*/
+        /*animation: bigger 1s linear forwards;*/
+        /*}*/
+        .box:hover header {
+            top: 15px;
+            transform: scale(1, 1);
+        }
+
+        header {
+            height: 150px;
+            width: 220px;
+            border-radius: 48%;
+            background-color: #f4f4f5;
+            margin-left: 300px;
+            position: relative;
+            z-index: 8;
+            top: 5px;
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+            transition: all 1s;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #000000;
+            top: 47px;
+            left: 46px;
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #000000;
+            top: 47px;
+            right: 46px;
+            border-radius: 50%;
+        }
+
+        .line {
+            width: 100px;
+            height: 5px;
+            background-color: black;
+            position: absolute;
+            top: 64px;
+            left: 56px;
+        }
+
+        main {
+            height: 400px;
+            width: 400px;
+            background-color: #f4f4f5;
+            margin-left: 210px;
+            border-radius: 46%;
+            position: relative;
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+            z-index: 7;
+        }
+
+        main::before {
+            content: "";
+            height: 300px;
+            width: 130px;
+            background-color: #f4f4f5;
+            position: absolute;
+            top: 17px;
+            left: -58px;
+            border-radius: 50% 50% 45% 45%;
+            transform: rotate(28deg);
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+
+        }
+
+        .box:hover main::before {
+            animation: 1s move linear forwards;
+        }
+
+        main::after {
+            content: "";
+            height: 300px;
+            width: 130px;
+            background-color: #f4f4f5;
+            position: absolute;
+            top: 35px;
+            left: 265px;
+            border-radius: 50% 50% 45% 45%;
+            transform: rotate(-27deg);
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+            transform-origin: top center;
+        }
+
+        .box:hover main::after {
+            animation: 1s move linear forwards;
+        }
+
+        @keyframes move {
+            to {
+                transform: rotateX(60deg);
+            }
+        }
+
+        footer {
+            width: 400px;
+            height: 400px;
+            /*background-color: skyblue;*/
+            margin-left: 210px;
+            position: relative;
+            top: -82px;
+            z-index: 5;
+        }
+
+        footer::before {
+            content: "";
+            width: 120px;
+            height: 200px;
+            background-color: #f4f4f5;
+            position: absolute;
+            top: 0;
+            left: 46px;
+            border-radius: 40% 40% 50% 50%;
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+            transform: rotateZ(-6deg);
+        }
+
+        footer::after {
+            content: "";
+            width: 120px;
+            height: 200px;
+            background-color: #f4f4f5;
+            position: absolute;
+            top: 0;
+            right: 46px;
+            border-radius: 40% 40% 50% 50%;
+            box-shadow: 1px 1px 3px gray, -1px -1px 3px gray;
+            transform: rotateZ(6deg);
+        }
+
+        footer::after:hover {
+            animation: moved 1s linear forwards;
+        }
+
+        @keyframes moved {
+            to {
+                transform: rotateX(-60deg);
+            }
+        }
+
+        .shadow {
+            background-color: rgba(0, 0, 0, 0.2);
+            position: absolute;
+            height: 100px;
+            width: 360px;
+            top: 617px;
+            left: 232px;
+            border-radius: 50%;
+            /*box-shadow: 20px 20px 20px rgba(0,0,0,0.8);*/
+            transform: rotateX(20deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <header>
+        <div class="line"></div>
+    </header>
+    <main>
+    </main>
+    <footer>
+    </footer>
+    <div class="shadow">
+
+    </div>
+</div>
+</body>
+</html>
